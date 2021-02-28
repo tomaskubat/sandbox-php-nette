@@ -1,1 +1,12 @@
+vendor
+
+tmp/*
+!tmp/cli/.gittouch
+!tmp/web/.gittouch
+
+log/*
+!log/cli/.gittouch
+!log/web/.gittouch
+
+>>>>>>> 23c6bda (Initial Nette sandbox app)
 .ash_history

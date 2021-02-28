@@ -1,0 +1,18 @@
+body {
+	background: black;
+	color: lightgrey;
+	margin: 30px 40px;
+}
+
+a {
+	color: lightgrey;
+}
+
+a[href^="#error:"] {
+	background: red;
+	color: lightgrey;
+}
+
+form .required label {
+	font-weight: bold;
+}

@@ -1,0 +1,21 @@
+{layout '../../../../Templates/@layout.latte'}
+
+{block content}
+	<h1 n:block=title>Congratulations!</h1>
+	<h3>You have successfully created your Nette Framework project.</h3>
+
+	<p n:if="!$user->isLoggedIn()">
+		Try <a n:href=":Admin:Sign:in">login demo</a>.
+	</p>
+
+	<p n:if="$user->isLoggedIn()">
+		You are sucessfully authenticated as user <b>{$user->identity->data['username']}</b>.
+		Try <a n:href=":Admin:Sign:out">sign out</a>.
+	</p>
+{/block}
+
+{block head}
+<style>
+
+</style>
+{/block}

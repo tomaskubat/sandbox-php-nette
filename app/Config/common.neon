@@ -1,0 +1,32 @@
+parameters:
+    database:
+        driver: mysql
+        host:
+        dbname:
+        user:
+        password:
+
+application:
+    errorPresenter: Error
+    mapping:
+        *: App\Modules\*\Presenters\*Presenter
+
+session:
+    expiration: 14 days
+
+database:
+    default:
+        dsn: '%database.driver%:host=%database.host%;dbname=%database.dbname%'
+        user: %database.user%
+        password: %database.password%
+        debugger: %debugMode%
+        reflection: discovered
+        explain: false
+        options:
+            lazy: yes
+
+services:
+    - App\Model\UserManager
+    - App\Modules\Admin\Forms\FormFactory
+    - App\Modules\Admin\Forms\SignInFormFactory
+    - App\Router\RouterFactory::createRouter
