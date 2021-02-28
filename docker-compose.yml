@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+    nginx:
+        image: registry.gitlab.com/tomaskubat-sandbox/containers/nginx:latest-prod-alpine
+        # container_name: sandbox_php_nginx
+        ports:
+            - 8099:80
+        volumes:
+            - "${PWD}:/srv:cached"
+    php:
+        image: registry.gitlab.com/tomaskubat-sandbox/containers/php:8.0-prod-fmp-alpine
+        # container_name: sandbox_php_php
+        volumes:
+            - "${PWD}:/srv:cached"
