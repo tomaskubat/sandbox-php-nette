@@ -14,7 +14,7 @@ class Bootstrap
 	{
         $appDir = dirname(__DIR__);
         $sapi = PHP_SAPI == 'cli' ? 'cli' : 'web';
-        $dev = file_exists( $appDir . '/docker-compose.yml');
+        $dev = getenv('ENV', true) === 'development';
 
         $configurator = new Configurator();
         $configurator->setDebugMode($dev);

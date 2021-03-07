@@ -8,6 +8,7 @@ services:
         volumes:
             - ./migrations:/docker-entrypoint-initdb.d:cached
         environment:
+            ENV: development
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: project
             MYSQL_USER: project
@@ -20,9 +21,13 @@ services:
             - 8091:80
         volumes:
             - "${PWD}:/src:cached"
+        environment:
+            ENV: development
 
     php:
         image: registry.gitlab.com/tomaskubat-sandbox/containers/php:8.0-dev-fmp-alpine
         container_name: sandbox_phpnette_php
         volumes:
             - "${PWD}:/src:cached"
+        environment:
+            ENV: development
