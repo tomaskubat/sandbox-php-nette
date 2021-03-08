@@ -15,6 +15,8 @@ up:
 pull:
 	$(call docker_compose_cmd, pull)
 
+update: pull
+
 down:
 	$(call docker_compose_cmd, down)
 
@@ -40,7 +42,7 @@ logs:
 
 log_php:
 	# docker logs sandbox_phpnette_php -f
-	$(call docker_compose_cmd, logs -f --tail=25 db)
+	$(call docker_compose_cmd, logs -f --tail=25 php)
 
 log_db:
 	# docker logs sandbox_phpnette_db -f
