@@ -8,5 +8,5 @@ log/*
 !log/cli/.gittouch
 !log/web/.gittouch
 
->>>>>>> 23c6bda (Initial Nette sandbox app)
+.idea
 .ash_history
