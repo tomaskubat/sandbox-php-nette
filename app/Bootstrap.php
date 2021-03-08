@@ -20,11 +20,7 @@ class Bootstrap
         $configurator->setDebugMode($dev);
 		$configurator->enableTracy($appDir . '/log/' . $sapi);
 
-		//$configurator->setTimeZone('Europe/Prague');
 		$configurator->setTempDirectory($appDir . '/tmp/' . $sapi);
-
-		$aa = date_default_timezone_get();
-        $aaa = date(DATE_RFC2822);
 
 		$configurator->createRobotLoader()
 			->addDirectory(__DIR__)
