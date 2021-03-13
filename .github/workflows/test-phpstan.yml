@@ -1,0 +1,39 @@
+name: Test PHPStan
+
+on: push
+
+# on:
+#   push:
+#     branches: 
+#       - main
+#   pull_request:
+#     branches: 
+#       - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    container:
+      image: tomaskubat/php:8.0-dev-fmp-alpine
+      env:
+        NODE_ENV: production
+      volumes:
+        - $GITHUB_WORKSPACE:/src
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check Alpine version
+        run: |
+          cat /etc/alpine-release
+          pwd
+          env
+
+      - name: Run Composer installs
+        run: |
+          composer install --prefer-dist --no-progress --no-suggest
+
+      - name: Run PHPStan test
+        run: |
+          composer phpstan
