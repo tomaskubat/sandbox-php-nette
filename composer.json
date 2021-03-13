@@ -43,6 +43,6 @@
 	},
 	"minimum-stability": "stable",
 	"scripts": {
-		"phpstan": "phpstan analyse --level 1 app"
+		"phpstan": "phpstan"
 	}
 }
