@@ -1,7 +1,7 @@
 version: '3.7'
 services:
     db:
-        image: registry.gitlab.com/tomaskubat-sandbox/containers/mariadb:10.5-dev-focal
+        image: tomaskubat/mariadb:10.5-dev-focal
         container_name: sandbox_phpnette_db
         ports:
             - 3391:3306
@@ -15,7 +15,7 @@ services:
             MYSQL_PASSWORD: project
 
     nginx:
-        image: registry.gitlab.com/tomaskubat-sandbox/containers/nginx:1.19-dev-alpine
+        image: tomaskubat/nginx:1.19-dev-alpine
         container_name: sandbox_phpnette_nginx
         ports:
             - 8091:80
@@ -25,7 +25,7 @@ services:
             ENV: development
 
     php:
-        image: registry.gitlab.com/tomaskubat-sandbox/containers/php:8.0-dev-fmp-alpine
+        image: tomaskubat/php:8.0-dev-fmp-alpine
         container_name: sandbox_phpnette_php
         volumes:
             - "${PWD}:/src:cached"
