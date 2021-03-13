@@ -1,0 +1,17 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Array \\(array\\<callable\\(Nette\\\\Forms\\\\Form, array\\|object\\)\\: void\\>\\) does not accept Closure\\(Nette\\\\Forms\\\\Form, stdClass\\)\\: void\\.$#"
+			count: 1
+			path: app/Modules/Admin/Forms/SignInFormFactory.php
+
+		-
+			message: "#^Cannot call method isMethod\\(\\) on Nette\\\\Application\\\\Request\\|null\\.$#"
+			count: 1
+			path: app/Presenters/Error4xxPresenter.php
+
+		-
+			message: "#^Cannot call method setFile\\(\\) on Nette\\\\Application\\\\UI\\\\Template\\|stdClass\\.$#"
+			count: 1
+			path: app/Presenters/Error4xxPresenter.php
+

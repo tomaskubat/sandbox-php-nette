@@ -12,6 +12,8 @@ docker_compose_cmd = docker-compose -p ${DEV_PROJECT_NAME} -f ${DEV_DOCKER_COMPO
 up:
 	$(call docker_compose_cmd, up)
 
+phpstan:
+	$(call docker_compose_cmd, exec php  ./vendor/bin/phpstan)
 pull:
 	$(call docker_compose_cmd, pull)
 

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Modules\Admin\Forms;
 
-use Nette\Application\UI\Form;
+use \stdClass;
+use Nette\Application\UI\Form AS UIFor;
+use Nette\Forms\Form AS BaseForm;
 use Nette\Security\User;
 use Nette\SmartObject;
 
@@ -19,7 +21,7 @@ final class SignInFormFactory
     ) {
     }
 
-    public function create(callable $onSuccess): Form
+    public function create(callable $onSuccess): UIFor
     {
         $form = $this->factory->create();
         $form->addText('username', 'Username:')
@@ -34,7 +36,7 @@ final class SignInFormFactory
 
         $form->addSubmit('send', 'Sign in');
 
-        $form->onSuccess[] = function (Form $form, \stdClass $values) use ($onSuccess): void {
+        $form->onSuccess[] = function (BaseForm $form, stdClass $values) use ($onSuccess): void {
             try {
                 $this->user->setExpiration($values->remember ? '14 days' : '20 minutes');
                 $this->user->login($values->username, $values->password);
