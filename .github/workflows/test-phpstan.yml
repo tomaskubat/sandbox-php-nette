@@ -18,8 +18,8 @@ jobs:
       image: tomaskubat/php:8.0-dev-fmp-alpine
       env:
         NODE_ENV: production
-      volumes:
-        - $GITHUB_WORKSPACE:/src
+      # volumes:
+      #   - $GITHUB_WORKSPACE:/src
 
     steps:
       - uses: actions/checkout@v2
