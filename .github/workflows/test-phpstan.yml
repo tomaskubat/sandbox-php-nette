@@ -30,6 +30,18 @@ jobs:
           pwd
           env
 
+      - name: Get Composer Cache Directory
+        id: composer-config
+        run: |
+          echo "::set-output name=dir::$(composer config cache-files-dir)"
+          
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.composer-config.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
       - name: Run Composer installs
         run: |
           composer install --prefer-dist --no-progress --no-suggest
