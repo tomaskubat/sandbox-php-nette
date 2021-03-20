@@ -34,7 +34,7 @@ jobs:
         id: composer-config
         run: |
           echo "::set-output name=dir::$(composer config cache-files-dir)"
-          
+
       - uses: actions/cache@v2
         with:
           path: ${{ steps.composer-config.outputs.dir }}
@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Composer installs
         run: |
-          composer install --prefer-dist --no-progress --no-suggest
+          composer install --prefer-dist --no-progress
 
       - name: Run PHPStan test
         run: |
